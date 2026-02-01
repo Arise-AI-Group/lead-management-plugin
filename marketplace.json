@@ -1,0 +1,122 @@
+{
+  "name": "lead-management",
+  "displayName": "Lead Management System",
+  "version": "1.0.0",
+  "description": "Complete lead-to-revenue pipeline management. Capture leads, prep for discovery calls, follow up automatically, manage proposals, track contracts, and nurture prospects. Built for small businesses that need effective lead management without the overhead.",
+  "shortDescription": "Turn Claude into your lead management specialist",
+  "author": {
+    "name": "Arise AI Group",
+    "url": "https://arisegroup.ai"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Arise-AI-Group/lead-management-plugin"
+  },
+  "categories": [
+    "Sales",
+    "CRM",
+    "Business",
+    "Productivity"
+  ],
+  "tags": [
+    "lead-management",
+    "sales",
+    "crm",
+    "pipeline",
+    "proposals",
+    "contracts",
+    "follow-up",
+    "nurture",
+    "small-business"
+  ],
+  "features": [
+    "Lead capture and scoring",
+    "Discovery call preparation",
+    "Post-call follow-up automation",
+    "Proposal assembly and routing",
+    "Contract management",
+    "Invoice tracking",
+    "Nurture sequence automation",
+    "Content generation from meetings",
+    "Pipeline analytics"
+  ],
+  "integrations": [
+    "Slack",
+    "HubSpot",
+    "Notion",
+    "Fireflies",
+    "Microsoft 365"
+  ],
+  "commands": [
+    {
+      "name": "/lead-management:capture-lead",
+      "description": "Quick-capture a lead from any source with AI scoring"
+    },
+    {
+      "name": "/lead-management:pipeline-review",
+      "description": "Review pipeline health, stalled deals, conversion metrics"
+    },
+    {
+      "name": "/lead-management:prep-call",
+      "description": "Prepare for a discovery or sales call"
+    },
+    {
+      "name": "/lead-management:draft-followup",
+      "description": "Draft personalized follow-up after a call"
+    },
+    {
+      "name": "/lead-management:send-proposal",
+      "description": "Assemble and route a proposal for review"
+    },
+    {
+      "name": "/lead-management:nurture-status",
+      "description": "Check nurture sequence status across all leads"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Lead Capture",
+      "activates": "When you mention a new lead, contact, or form submission"
+    },
+    {
+      "name": "Discovery Prep",
+      "activates": "When you talk about meeting prep or upcoming calls"
+    },
+    {
+      "name": "Post-Call Follow-Up",
+      "activates": "When you discuss call notes, transcripts, or follow-ups"
+    },
+    {
+      "name": "Proposal Assembly",
+      "activates": "When you need a proposal, quote, or SOW"
+    },
+    {
+      "name": "Contract Management",
+      "activates": "When you work with contracts or e-signatures"
+    },
+    {
+      "name": "Invoice Tracking",
+      "activates": "When you handle invoicing or payments"
+    },
+    {
+      "name": "Nurture Sequences",
+      "activates": "When you ask about drip campaigns or re-engagement"
+    },
+    {
+      "name": "Content Engine",
+      "activates": "When you want to repurpose meetings into content"
+    }
+  ],
+  "requirements": {
+    "claudeCode": ">=1.0.0",
+    "claudeCowork": ">=1.0.0"
+  },
+  "installation": {
+    "method": "claude-plugin",
+    "path": "lead-management"
+  },
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/Arise-AI-Group/lead-management-plugin",
+  "issues": "https://github.com/Arise-AI-Group/lead-management-plugin/issues",
+  "documentation": "https://github.com/Arise-AI-Group/lead-management-plugin/blob/main/README.md"
+}
