@@ -41,6 +41,7 @@ Once installed, skills activate automatically when relevant, and slash commands 
 | `/lead-management:pipeline-review` | Review pipeline health, stalled deals, conversion metrics |
 | `/lead-management:prep-call` | Prepare for a discovery or sales call |
 | `/lead-management:draft-followup` | Draft personalized follow-up after a call |
+| `/lead-management:opportunity-assessment` | Transform discovery transcript into opportunity matrix |
 | `/lead-management:send-proposal` | Assemble and route a proposal for review |
 | `/lead-management:nurture-status` | Check nurture sequence status across all leads |
 
@@ -53,6 +54,7 @@ These activate based on what you're doing — no command needed:
 | Lead Capture | Mention a new lead, contact, or form submission |
 | Discovery Prep | Talk about meeting prep, upcoming calls, or pre-meeting tasks |
 | Post-Call Follow-Up | Discuss call notes, transcripts, or follow-up emails |
+| Opportunity Assessment | Process discovery transcripts into structured assessments |
 | Proposal Assembly | Need a proposal, quote, or SOW |
 | Nurture Sequences | Ask about drip campaigns, cold leads, or re-engagement |
 | Contract Management | Work with contracts, e-signatures, or signing status |
@@ -87,6 +89,7 @@ The plugin covers every stage of the lead-to-revenue pipeline:
 LEAD ENTRY           → lead-capture skill + /capture-lead command
 DISCOVERY PREP       → discovery-prep skill + /prep-call command
 POST-CALL            → post-call-followup skill + /draft-followup command
+OPPORTUNITY ASSESS   → opportunity-assessment skill + /opportunity-assessment command
 PROPOSAL             → proposal-assembly skill + /send-proposal command
 CONTRACT             → contract-management skill
 INVOICE & PAYMENT    → invoice-tracking skill

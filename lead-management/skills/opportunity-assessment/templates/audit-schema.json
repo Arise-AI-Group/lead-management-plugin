@@ -1,0 +1,341 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Discovery Audit Schema",
+  "description": "Structured data schema for discovery meeting assessment",
+  "type": "object",
+  "required": ["client_id", "created_date", "audit_status", "audit_brief"],
+  "properties": {
+    "client_id": {
+      "type": "string",
+      "description": "Unique identifier for the client"
+    },
+    "created_date": {
+      "type": "string",
+      "format": "date",
+      "description": "ISO date when audit was created"
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last modification timestamp"
+    },
+    "audit_status": {
+      "type": "string",
+      "enum": ["in_progress", "discovery_complete", "discovery_complete_with_analysis", "delivered"],
+      "description": "Current status of the audit"
+    },
+    "data_completeness": {
+      "type": "string",
+      "enum": ["minimal", "partial", "full"],
+      "description": "Level of data completeness"
+    },
+    "audit_brief": {
+      "type": "object",
+      "properties": {
+        "company_name": {
+          "type": "string"
+        },
+        "industry": {
+          "type": ["string", "null"],
+          "description": "Industry vertical"
+        },
+        "company_size": {
+          "type": ["string", "null"],
+          "description": "Number of employees or size category"
+        },
+        "annual_revenue": {
+          "type": ["string", "null"],
+          "description": "Annual revenue range"
+        },
+        "main_offers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Primary products or services"
+        },
+        "ideal_customer_profile": {
+          "type": ["string", "null"],
+          "description": "Description of ideal customer"
+        },
+        "sales_model": {
+          "type": ["string", "null"],
+          "description": "How they sell (B2B, B2C, marketplace, etc.)"
+        },
+        "tech_stack": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Current tools and systems"
+        },
+        "existing_ai_usage": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Any AI tools currently in use"
+        },
+        "business_goals": {
+          "type": "object",
+          "properties": {
+            "primary": {
+              "type": ["string", "null"]
+            },
+            "secondary": {
+              "type": ["string", "null"]
+            },
+            "metrics": {
+              "type": ["string", "null"],
+              "description": "KPIs they track"
+            }
+          }
+        },
+        "constraints": {
+          "type": "object",
+          "properties": {
+            "budget": {
+              "type": ["string", "null"],
+              "description": "Budget range if mentioned"
+            },
+            "timeline": {
+              "type": ["string", "null"],
+              "description": "Implementation timeline"
+            },
+            "technical": {
+              "type": ["string", "null"],
+              "description": "Technical limitations"
+            },
+            "organizational": {
+              "type": ["string", "null"],
+              "description": "Org constraints"
+            }
+          }
+        },
+        "validated_facts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Facts explicitly stated by client with quotes"
+        }
+      }
+    },
+    "current_state_maps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["process_id", "name"],
+        "properties": {
+          "process_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "description": "Process name as client describes it"
+          },
+          "function_area": {
+            "type": "string",
+            "description": "Business function (Sales, Operations, etc.)"
+          },
+          "owner_roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "trigger": {
+            "type": ["string", "null"],
+            "description": "What starts this process"
+          },
+          "frequency": {
+            "type": ["string", "null"],
+            "description": "How often it happens"
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "step_number": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "who": {
+                  "type": "string",
+                  "description": "Person or role"
+                },
+                "tool": {
+                  "type": ["string", "null"],
+                  "description": "System or tool used"
+                },
+                "pain_points": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Issues at this step (quotes)"
+                },
+                "duration": {
+                  "type": ["string", "null"],
+                  "description": "Time if provided"
+                }
+              }
+            }
+          },
+          "pain_points": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Overall process pain points (quotes)"
+          },
+          "metrics": {
+            "type": "object",
+            "properties": {
+              "volume": {
+                "type": ["string", "null"],
+                "description": "Transaction volume"
+              },
+              "cycle_time": {
+                "type": ["string", "null"],
+                "description": "End-to-end time"
+              },
+              "error_rate": {
+                "type": ["string", "null"],
+                "description": "Error frequency"
+              },
+              "cost_per_process": {
+                "type": ["string", "null"],
+                "description": "Cost if known"
+              },
+              "bottleneck_severity": {
+                "type": ["string", "null"],
+                "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW", null],
+                "description": "Severity assessment"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ai_opportunity_matrix": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "process_name", "type", "category", "description", "impact", "effort"],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "process_name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["Automation", "AI-Assist", "AI-Augmented", "Agentic"],
+            "description": "Type of AI application"
+          },
+          "category": {
+            "type": "string",
+            "description": "Category (Sales Automation, Data Sync, etc.)"
+          },
+          "description": {
+            "type": "string"
+          },
+          "impact": {
+            "type": "string",
+            "enum": ["high", "medium", "low"]
+          },
+          "impact_details": {
+            "type": "object",
+            "properties": {
+              "time_saved": {
+                "type": ["string", "null"],
+                "description": "Only if client provided"
+              },
+              "cost_reduction": {
+                "type": ["string", "null"],
+                "description": "Only if client provided"
+              },
+              "revenue_impact": {
+                "type": ["string", "null"],
+                "description": "Only if client provided"
+              },
+              "quality_improvement": {
+                "type": ["string", "null"]
+              }
+            }
+          },
+          "effort": {
+            "type": "string",
+            "enum": ["high", "medium", "low"]
+          },
+          "speed_to_value": {
+            "type": ["string", "null"],
+            "description": "Time to see results"
+          },
+          "data_requirements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "risks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "priority_score": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10
+          }
+        }
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of missing information that needs follow-up"
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Additional notes and observations"
+    },
+    "_metadata": {
+      "type": "object",
+      "properties": {
+        "data_sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Sources of information (transcript, notes, etc.)"
+        },
+        "assumptions_made": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Any assumptions that need validation"
+        },
+        "follow_up_required": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Specific follow-up actions needed"
+        }
+      }
+    }
+  }
+}
